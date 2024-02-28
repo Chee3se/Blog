@@ -1,7 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Posts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 <?php
 require "functions.php";
 
-echo "Sveiks!<br>";
+echo "<h1>Sveiks!<h1><br>";
 
 //Connection string (host, db, name, pass)
 $connection_string = "mysql:host=localhost;dbname=blog_petersons;user=root;password=;charset=utf8mb4";
@@ -16,8 +25,10 @@ $posts = $query->fetchAll(PDO::FETCH_ASSOC);
 //Output each post title in frontend
 
 foreach ($posts as $post) {
-    echo $post["title"]."<br>";
+    echo "<h2>".$post["title"]."</h2>";
 }
 
 dd($posts);
 ?>
+</body>
+</html>
