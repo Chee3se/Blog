@@ -8,25 +8,14 @@
     <link rel="icon" type="image/x-icon" href="./elephant.png">
 </head>
 <body><?php
-
+//Get data from database and output them using HTML
+include "Database.php";
 require "functions.php";
 
 echo "<h1>Sveiks!</h1><br>";
 
-//Connection string (host, db, name, pass)
-$connection_string = "mysql:host=localhost;dbname=blog_petersons;user=root;password=;charset=utf8mb4";
-
-//Connect with database
-$pdo = new PDO($connection_string);
-
-//Prepare the SQL statement
-$query = $pdo->prepare("SELECT * FROM posts");
-
-//Execute the prepared SQL statement
-$query->execute();
-
-//Get the response as an associative array
-$posts = $query->fetchAll(PDO::FETCH_ASSOC);
+$db = new Database();
+$posts = $db->execute();
 
 //Output each post title in frontend
 echo "<ol>";
