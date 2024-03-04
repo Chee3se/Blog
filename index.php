@@ -11,24 +11,31 @@
 
 require "functions.php";
 
-echo "<h1>Sveiks!<h1><br>";
+echo "<h1>Sveiks!</h1><br>";
 
 //Connection string (host, db, name, pass)
 $connection_string = "mysql:host=localhost;dbname=blog_petersons;user=root;password=;charset=utf8mb4";
+
 //Connect with database
 $pdo = new PDO($connection_string);
+
 //Prepare the SQL statement
 $query = $pdo->prepare("SELECT * FROM posts");
+
 //Execute the prepared SQL statement
 $query->execute();
+
 //Get the response as an associative array
 $posts = $query->fetchAll(PDO::FETCH_ASSOC);
+
 //Output each post title in frontend
-
+echo "<ol>";
 foreach ($posts as $post) {
-    echo "<h2>".$post["title"]."</h2>";
+    echo "<h2><li>".$post["title"]."</li></h2>";
 }
+echo "</ol>";
 
+//Dump and Die
 dd($posts);
 
 ?></body>
