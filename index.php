@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Posts</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="./elephant.png">
 </head>
-<body>
-<?php
+<body><?php
+
 require "functions.php";
 
 echo "<h1>Sveiks!<h1><br>";
@@ -29,6 +30,6 @@ foreach ($posts as $post) {
 }
 
 dd($posts);
-?>
-</body>
+
+?></body>
 </html>
