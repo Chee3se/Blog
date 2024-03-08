@@ -9,13 +9,14 @@
 </head>
 <body><?php
 //Get data from database and output them using HTML
-include "Database.php";
+$config = require "config.php";
 require "functions.php";
+require "Database.php";
 
 echo "<h1>Sveiks!</h1><br>";
 
-$db = new Database();
-$posts = $db->execute();
+$db = new Database($config);
+$posts = $db->executeQuery("SELECT * FROM posts")->fetchAll();
 
 //Output each post title in frontend
 echo "<ol>";
