@@ -9,10 +9,10 @@ class Database {
         $this->connection = new PDO($connection_string);
         $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
-    public function executeQuery($query, ) {
-        $query = $this->connection->prepare($query);
-        $query->execute();
-        return $query;
+    public function execute($query_string, $params) {
+        $query = $this->connection->prepare($query_string);
+        $query->execute($params);
+        return $query->fetchAll();
     }
 
     public function __destruct() {
