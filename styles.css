@@ -19,16 +19,16 @@ form {
 form>button {
     border-radius: 0px 10px 10px 0px;
     font-weight: bold;
-    background-color: beige;
+    background-color: rgb(255, 255, 255);
 }
 form>input {
     border-radius: 10px 0px 0px 10px;
-    background-color: beige;
+    background-color: rgb(255, 255, 255);
     text-align: center;
     width: 40px;
 }
 form>input~input {
     border-radius: 0px;
-    background-color: beige;
+    background-color: rgb(255, 255, 255);
     width: 70px;
 }
