@@ -13,34 +13,34 @@ $config = require "config.php";
 require "functions.php";
 require "Database.php";
 
-echo "<form>";
-echo "<input name='id'/>";
-echo "<button>Filter by ID</button>";
-echo "</form>";
-
-echo "<form>";
-echo "<input name='category'/>";
-echo "<button>Filter by Category</button>";
-echo "</form>";
-
 $db = new Database($config);
 
 $query_string = "SELECT * FROM posts";
 $params = [];
 
-// ID
-if (isset($_GET["id"])&&$_GET["id"]!=NULL) {
-    $query_string .= " WHERE id=:id";
-    $params[":id"] = $_GET["id"];
-}
 // Category
 if (isset($_GET["category"])&&$_GET["category"]!=NULL) {
     $query_string .= " LEFT JOIN categories ON posts.category_id = categories.id WHERE categories.name = :category";
     $params[":category"] = $_GET["category"];
 }
+// ID
+if (isset($_GET["id"])&&$_GET["id"]!=NULL) {
+    if (isset($_GET["category"])&&$_GET["category"]!=NULL) {
+        $query_string .= " AND posts.id=:id";
+    } else {
+        $query_string .= " WHERE id=:id";
+    }
+    $params[":id"] = $_GET["id"];
+}
 
 // Send querry
 $posts = $db->execute($query_string, $params);
+
+echo "<form>";
+echo "<input name='id' placeholder='ID' value='".($_GET["id"] ?? '')."'/>";
+echo "<input name='category' placeholder='Category' value='".($_GET["category"] ?? '')."'/>";
+echo "<button>Filter</button>";
+echo "</form>";
 
 echo "<h1>Posts</h1><br>";
 
