@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Posts</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="./elephant.png">
-</head>
-<body>
+<!-- Head -->
+<?php require "components/head.php" ?>
+
     <!-- Navbar -->
-    <nav>
-        <a href="/index.php">Posts</a>
-        <a href="/about.php">About Us</a>
-        <a href="/story.php">Story</a>
-    </nav>
+    <?php require "components/navbar.php" ?>
 
     <!-- Form Filter -->
     <form>
@@ -33,5 +22,5 @@
     <!-- Dump and Die -->
     <?php dd($posts) ?>
 
-</body>
-</html>
+<!-- Footer -->
+<?php require "components/footer.php" ?>
