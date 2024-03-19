@@ -30,4 +30,4 @@ if (isset($_GET["id"])&&$_GET["id"]!=NULL) {
 $posts = $db->execute($query_string, $params);
 
 // Display data using view
-require "views/index.view.php";
+require "views/posts.view.php";

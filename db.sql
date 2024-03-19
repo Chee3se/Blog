@@ -36,3 +36,7 @@ WHERE id = 2;
 
 ALTER TABLE posts
 ADD FOREIGN KEY (category_id) REFERENCES categories(id);
+
+INSERT INTO posts (title, category_id)
+VALUES
+("Blog 3", 2)
