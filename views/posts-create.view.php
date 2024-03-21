@@ -3,7 +3,7 @@
 
 <h1>Create post</h1>
 
-<form>
+<form method="POST">
     <label>
         <span>Title:</span>
         <input name="title"/>
