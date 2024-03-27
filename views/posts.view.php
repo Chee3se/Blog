@@ -15,12 +15,9 @@
     <h1>Posts</h1>
     <ol>
         <?php foreach ($posts as $post) { ?>
-            <h2><li> <?= $post["title"] ?> </li></h2>
+            <h2><li> <?= htmlspecialchars($post['title']) ?> </li></h2>
         <?php } ?>
     </ol>
-    
-    <!-- Dump and Die -->
-    <?php dd($posts) ?>
 
 <!-- Footer -->
 <?php require "components/footer.php" ?>
