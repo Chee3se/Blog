@@ -1,8 +1,8 @@
 <?php
 
 use controllers\AboutController;
-use Controllers\PostController;
-use Controllers\StoryController;
+use controllers\PostController;
+use controllers\StoryController;
 
 // Posts
 $router->get('/{id}/{category}', [PostController::class, 'index']);

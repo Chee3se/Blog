@@ -4,7 +4,7 @@
 
 <h1>Create post</h1>
 
-<form method="POST" action="/">
+<form class="post-form" method="POST" action="/">
     <label>
         <span>Title:</span>
         <input name="title" value="<?= $title ?? "" ?>"/>
@@ -12,6 +12,7 @@
     <?php if (isset($errors["title"])): ?>
         <p><?= $errors["title"] ?></p>
     <?php endif; ?>
+    <br>
     <label>
         <span>Category:</span>
         <select name="category_id">
@@ -23,6 +24,7 @@
     <?php if (isset($errors["category_id"])): ?>
         <p><?= $errors["category_id"] ?></p>
     <?php endif; ?>
+    <br>
     <button>Submit</button>
 </form>
 
